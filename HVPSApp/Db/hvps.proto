@@ -8,3 +8,75 @@ getFwVersion {
     out "@VER";
     in "%#s";
 }
+
+# Serial number
+getSerialNumber {
+  out "@SNS ?";
+  in "%#s";
+}
+
+# Name
+getName {
+  out "@DEV ?";
+  in "%#s";
+}
+
+# Location
+getLocation {
+  out "@LOC ?";
+  in "%#s";
+}
+
+# Polarity
+getPolarity {
+  out "@POL ?";
+  in "%u";
+}
+
+# Operation mode
+getOperationMode {
+  out "@MOD";
+  in "%u";
+}
+
+# Operation status
+getOperationStatus {
+  out "@STT";
+  in "%u";
+}
+
+# Voltage setpoint
+setVoltageSetpoint {
+  out "@HVS %u";
+  in "ACK";
+}
+getVoltageSetpoint {
+  out "@HVS ?";
+  in "%u";
+}
+
+# Current limit
+setCurrentLimit {
+  out "@ILS %u";
+  in "ACK";
+}
+getCurrentLimit {
+  out "@ILS ?";
+  in "%u";
+}
+
+# Output enable
+setOutputEnable {
+  out "@HVE \$1";
+  in "ACK";
+}
+getOutputEnable {
+  out "@HVE ?";
+  in "%u";
+}
+
+# Acquire voltage and current
+getVoltageAndCurrent {
+  out "@ACQ";
+  in "%u %(\$1\$2Current-Mon)u";
+}

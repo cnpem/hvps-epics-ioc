@@ -8,3 +8,173 @@ record(stringin, "$(P)$(R)FwVersion-Cte") {
   field (PINI, "YES")
   field (INP, "@hvps.proto getFwVersion() $(PORT)")
 }
+
+# Serial number
+record(stringin, "$(P)$(R)SerialNumber-Cte") {
+  field(DESC, "Device serial number")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getSerialNumber() $(PORT)")
+}
+
+# Name
+record(stringin, "$(P)$(R)Name-Cte") {
+  field(DESC, "Device name")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getName() $(PORT)")
+}
+
+# Location
+record(stringin, "$(P)$(R)Location-Cte") {
+  field(DESC, "Device location")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getLocation() $(PORT)")
+}
+
+# Polarity
+record(mbbi, "$(P)$(R)Polarity-Cte") {
+  field(DESC, "Output polarity")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getPolarity() $(PORT)")
+  field(NOBT, "1")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(ZRST, "POSITIVE")
+  field(ONST, "NEGATIVE")
+}
+
+# Operation mode
+record(mbbi, "$(P)$(R)OperationMode-Mon") {
+  field(DESC, "Operation mode (selected by a physical switch)")
+  field(DTYP, "stream")
+  field(SCAN, "1 second")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getOperationMode() $(PORT)")
+  field(NOBT, "2")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "LOCAL")
+  field(ONST, "REMOTE")
+  field(TWST, "EXTERNAL")
+}
+
+# Operation status
+## }
+record(mbbi, "$(P)$(R)OperationStatus-Mon") {
+  field(DESC, "Operation status")
+  field(DTYP, "stream")
+  field(SCAN, "1 second")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getOperationStatus() $(PORT)")
+  field(NOBT, "3")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(ZRST, "ITLK HIGH")
+  field(ONST, "I PROT ON")
+  field(TWST, "V PROT ON")
+  field(THST, "HV DISARM")
+  field(FRST, "HV ENABLE")
+  field(FVST, "UNKNOWN")
+}
+
+# Voltage setpoint
+record(longout, "$(P)$(R)VoltageSetpoint-SP") {
+  field(DESC, "Output voltage setpoint 'setpoint'")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(DRVH, "5000")
+  field(OUT, "@hvps.proto setVoltageSetpoint() $(PORT)")
+  field(FLNK, "$(P)$(R)VoltageSetpoint-RB.PROC CA")
+  field(EGU, "V")
+  field(VAL, "0")
+}
+record(longin, "$(P)$(R)VoltageSetpoint-RB") {
+  field(DESC, "Output voltage setpoint 'readback'")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getVoltageSetpoint() $(PORT)")
+  field(EGU, "V")
+}
+
+# Current limit
+record(longout, "$(P)$(R)CurrentLimit-SP") {
+  field(DESC, "Current limit setpoint")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(DRVL, "0")
+  field(DRVH, "1200")
+  field(OUT, "@hvps.proto setCurrentLimit() $(PORT)")
+  field(FLNK, "$(P)$(R)CurrentLimit-RB.PROC CA")
+  field(EGU, "uA")
+}
+record(longin, "$(P)$(R)CurrentLimit-RB") {
+  field(DESC, "Current limit readback")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getCurrentLimit() $(PORT)")
+  field(EGU, "uA")
+}
+
+# Output enable
+record(bo, "$(P)$(R)OutputEnable-Cmd") {
+  field(DESC, "Tries to enable output")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(HIGH, "1")
+  field(MASK, "1")
+  field(ZNAM, "IDLE")
+  field(ONAM, "ENABLING")
+  field(OUT, "@hvps.proto setOutputEnable(1) $(PORT)")
+}
+record(bo, "$(P)$(R)OutputDisable-Cmd") {
+  field(DESC, "Disables HV output")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(HIGH, "1")
+  field(MASK, "1")
+  field(ZNAM, "IDLE")
+  field(ONAM, "DISABLING")
+  field(PINI, "YES")
+  field(OUT, "@hvps.proto setOutputEnable(0) $(PORT)")
+  field(VAL, "0")
+}
+record(mbbi, "$(P)$(R)OutputStatus-Mon") {
+  field(DESC, "Output enable monitor")
+  field(DTYP, "stream")
+  field(SCAN, ".2 second")
+  field(INP, "@hvps.proto getOutputEnable() $(PORT)")
+  field(NOBT, "1")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(ZRST, "OFF")
+  field(ONST, "ON")
+}
+
+# Acquire voltage and current
+record(longin, "$(P)$(R)Voltage-Mon") {
+  field(DESC, "Output voltage monitor")
+  field(DTYP, "stream")
+  field(SCAN, ".2 second")
+  field(INP, "@hvps.proto getVoltageAndCurrent($(P),$(R)) $(PORT)")
+}
+record(longin, "$(P)$(R)Current-Mon") {
+  field(DESC, "Output current monitor")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+}
