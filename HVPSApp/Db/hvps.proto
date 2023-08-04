@@ -1,0 +1,10 @@
+# Communication protocol definition
+
+InTerminator = CR;
+OutTerminator = CR;
+
+# Firmware version
+getFwVersion {
+    out "@VER";
+    in "%#s";
+}

@@ -1,0 +1,10 @@
+# HVPS Database records
+
+# Firmware version
+record(stringin, "$(P)$(R)FwVersion-Cte") {
+  field (DESC, "Firmware version")
+  field (DTYP, "stream")
+  field (SCAN, "Passive")
+  field (PINI, "YES")
+  field (INP, "@hvps.proto getFwVersion() $(PORT)")
+}

@@ -1,0 +1,12 @@
+services:
+  ioc:
+    image: hvps-epics-ioc
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+      labels:
+        org.opencontainers.image.source: https://gitlab.cnpem.br/GIE/IOCs/hvps-epics-ioc
+      args:
+        REPONAME: hvps-epics-ioc
+        RUNDIR: /opt/hvps-epics-ioc/iocBoot/iocHVPSApp
+        ENTRYPOINT: ./run.sh
