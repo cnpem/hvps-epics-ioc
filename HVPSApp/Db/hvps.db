@@ -133,6 +133,26 @@ record(longin, "$(P)$(R)CurrentLimit-RB") {
   field(EGU, "uA")
 }
 
+# Current trip
+record(longout, "$(P)$(R)CurrentTrip-SP") {
+  field(DESC, "Current trip setpoint")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(DRVL, "1")
+  field(DRVH, "1200")
+  field(OUT, "@hvps.proto setCurrentTrip() $(PORT)")
+  field(FLNK, "$(P)$(R)CurrenTrip-RB.PROC CA")
+  field(EGU, "uA")
+}
+record(longin, "$(P)$(R)CurrentTrip-RB") {
+  field(DESC, "Current trip readback")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getCurrentTrip() $(PORT)")
+  field(EGU, "uA")
+}
+
 # Output enable
 record(bo, "$(P)$(R)OutputEnable-Cmd") {
   field(DESC, "Tries to enable output")
@@ -166,6 +186,18 @@ record(mbbi, "$(P)$(R)OutputStatus-Mon") {
   field(ONVL, "1")
   field(ZRST, "OFF")
   field(ONST, "ON")
+}
+
+# Clear interlock command
+record(bo, "$(P)$(R)ClearInterlock-Cmd") {
+  field(DESC, "Tries to clear interlock")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(HIGH, "1")
+  field(MASK, "1")
+  field(ZNAM, "IDLE")
+  field(ONAM, "CLEARING")
+  field(OUT, "@hvps.proto clearInterlock() $(PORT)")
 }
 
 # Acquire voltage and current

@@ -65,6 +65,16 @@ getCurrentLimit {
   in "%u";
 }
 
+# Current trip
+setCurrentTrip {
+  out "@ITS %u";
+  in "ACK";
+}
+getCurrentTrip {
+  out "@ITS ?";
+  in "%u";
+}
+
 # Output enable
 setOutputEnable {
   out "@HVE \$1";
@@ -73,6 +83,12 @@ setOutputEnable {
 getOutputEnable {
   out "@HVE ?";
   in "%u";
+}
+
+# Clear interlock
+clearInterlock {
+  out "@CTT";
+  in "ACK";
 }
 
 # Acquire voltage and current
