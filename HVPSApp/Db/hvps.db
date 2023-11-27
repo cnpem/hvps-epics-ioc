@@ -81,12 +81,14 @@ record(mbbi, "$(P)$(R)OperationStatus-Mon") {
   field(THVL, "3")
   field(FRVL, "4")
   field(FVVL, "5")
-  field(ZRST, "ITLK HIGH")
+  field(SXVL, "6")
+  field(ZRST, "EXT.FAULT")
   field(ONST, "I PROT ON")
   field(TWST, "V PROT ON")
-  field(THST, "HV DISARM")
-  field(FRST, "HV ENABLE")
-  field(FVST, "UNKNOWN")
+  field(THST, "I TRIPPED")
+  field(FRST, "HV DISABLED")
+  field(FVST, "HV ENABLED")
+  field(SXST, "UNKNOWN")
 }
 
 # Voltage setpoint
