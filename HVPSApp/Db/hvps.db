@@ -118,7 +118,7 @@ record(longout, "$(P)$(R)CurrentLimit-SP") {
   field(DESC, "Current limit setpoint")
   field(DTYP, "stream")
   field(SCAN, "Passive")
-  field(DRVL, "0")
+  field(DRVL, "1")
   field(DRVH, "1200")
   field(OUT, "@hvps.proto setCurrentLimit() $(PORT)")
   field(FLNK, "$(P)$(R)CurrentLimit-RB.PROC CA")
