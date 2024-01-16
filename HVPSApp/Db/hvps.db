@@ -107,7 +107,7 @@ record(longout, "$(P)$(R)VoltageSetpoint-SP") {
 record(longin, "$(P)$(R)VoltageSetpoint-RB") {
   field(DESC, "Output voltage setpoint 'readback'")
   field(DTYP, "stream")
-  field(SCAN, "Passive")
+  field(SCAN, "1 second")
   field(PINI, "YES")
   field(INP, "@hvps.proto getVoltageSetpoint() $(PORT)")
   field(EGU, "V")
