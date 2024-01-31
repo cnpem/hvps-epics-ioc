@@ -52,7 +52,7 @@ record(mbbi, "$(P)$(R)Polarity-Cte") {
 
 # Operation mode
 record(mbbi, "$(P)$(R)OperationMode-Mon") {
-  field(DESC, "Operation mode (selected by a physical switch)")
+  field(DESC, "Operation mode (physical switch)")
   field(DTYP, "stream")
   field(SCAN, "1 second")
   field(PINI, "YES")
@@ -209,6 +209,5 @@ record(longin, "$(P)$(R)Voltage-Mon") {
 }
 record(longin, "$(P)$(R)Current-Mon") {
   field(DESC, "Output current monitor")
-  field(DTYP, "stream")
   field(SCAN, "Passive")
 }
