@@ -209,6 +209,5 @@ record(longin, "$(P)$(R)Voltage-Mon") {
 }
 record(longin, "$(P)$(R)Current-Mon") {
   field(DESC, "Output current monitor")
-  field(DTYP, "stream")
   field(SCAN, "Passive")
 }
