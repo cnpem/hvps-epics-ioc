@@ -1,6 +1,6 @@
 services:
   ioc:
-    image: hvps-epics-ioc
+    image: gitregistry.cnpem.br/gie/iocs/hvps-epics-ioc
     build:
       context: ./
       dockerfile: docker/Dockerfile
@@ -10,3 +10,4 @@ services:
         REPONAME: hvps-epics-ioc
         RUNDIR: /opt/hvps-epics-ioc/iocBoot/iocHVPSApp
         ENTRYPOINT: ./run.sh
+        BUILD_STAGE_VERSION: latest
