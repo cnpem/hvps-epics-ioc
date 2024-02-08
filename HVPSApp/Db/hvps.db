@@ -113,6 +113,29 @@ record(longin, "$(P)$(R)VoltageSetpoint-RB") {
   field(EGU, "V")
 }
 
+
+# Voltage reference
+record(longin, "$(P)$(R)VoltageRef-Mon") {
+  field(DESC, "Output voltage reference")
+  field(DTYP, "stream")
+  field(SCAN, "1 second")
+  field(PINI, "YES")
+  field(INP, "@hvps.proto getVoltageReference() $(PORT)")
+  field(EGU, "V")
+}
+
+# Apply voltage setpoint
+record(bo, "$(P)$(R)VoltageSetpoint-Cmd") {
+  field(DESC, "Applies voltage setpoint to output/reference")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(HIGH, "1")
+  field(MASK, "1")
+  field(ZNAM, "IDLE")
+  field(ONAM, "APPLY")
+  field(OUT, "@hvps.proto setVoltageOutput() $(PORT)")
+}
+
 # Current limit
 record(longout, "$(P)$(R)CurrentLimit-SP") {
   field(DESC, "Current limit setpoint")
