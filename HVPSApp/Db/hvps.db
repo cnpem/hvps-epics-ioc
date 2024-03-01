@@ -100,14 +100,13 @@ record(longout, "$(P)$(R)VoltageSetpoint-SP") {
   field(DRVL, "0")
   field(DRVH, "5000")
   field(OUT, "@hvps.proto setVoltageSetpoint() $(PORT)")
-  field(FLNK, "$(P)$(R)VoltageSetpoint-RB.PROC CA")
   field(EGU, "V")
   field(VAL, "0")
 }
 record(longin, "$(P)$(R)VoltageSetpoint-RB") {
   field(DESC, "Output voltage setpoint 'readback'")
   field(DTYP, "stream")
-  field(SCAN, "1 second")
+  field(SCAN, ".1 second")
   field(PINI, "YES")
   field(INP, "@hvps.proto getVoltageSetpoint() $(PORT)")
   field(EGU, "V")
@@ -118,7 +117,7 @@ record(longin, "$(P)$(R)VoltageSetpoint-RB") {
 record(longin, "$(P)$(R)VoltageRef-Mon") {
   field(DESC, "Output voltage reference")
   field(DTYP, "stream")
-  field(SCAN, "1 second")
+  field(SCAN, ".2 second")
   field(PINI, "YES")
   field(INP, "@hvps.proto getVoltageReference() $(PORT)")
   field(EGU, "V")
@@ -129,11 +128,12 @@ record(bo, "$(P)$(R)VoltageSetpoint-Cmd") {
   field(DESC, "Applies voltage setpoint to output/reference")
   field(DTYP, "stream")
   field(SCAN, "Passive")
-  field(HIGH, "1")
+  field(HIGH, ".2")
   field(MASK, "1")
   field(ZNAM, "IDLE")
   field(ONAM, "APPLY")
   field(OUT, "@hvps.proto setVoltageOutput() $(PORT)")
+  field(VAL, "0")
 }
 
 # Current limit
