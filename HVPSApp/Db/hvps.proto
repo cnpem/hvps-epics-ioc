@@ -55,6 +55,17 @@ getVoltageSetpoint {
   in "%u";
 }
 
+# Voltage reference
+getVoltageReference {
+  out "@HVR ?";
+  in "%u";
+}
+
+setVoltageOutput {
+  out "@APL";
+  in "ACK";
+}
+
 # Current limit
 setCurrentLimit {
   out "@ILS %u";
