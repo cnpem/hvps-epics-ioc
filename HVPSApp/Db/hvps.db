@@ -164,7 +164,7 @@ record(longout, "$(P)$(R)CurrentTrip-SP") {
   field(DRVL, "1")
   field(DRVH, "1200")
   field(OUT, "@hvps.proto setCurrentTrip() $(PORT)")
-  field(FLNK, "$(P)$(R)CurrenTrip-RB.PROC CA")
+  field(FLNK, "$(P)$(R)CurrentTrip-RB.PROC CA")
   field(EGU, "uA")
 }
 record(longin, "$(P)$(R)CurrentTrip-RB") {
