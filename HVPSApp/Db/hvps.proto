@@ -1,5 +1,8 @@
 # Communication protocol definition
 
+ReadTimeout = 5000;
+ReplyTimeout = 5000;
+
 InTerminator = CR;
 OutTerminator = CR;
 
