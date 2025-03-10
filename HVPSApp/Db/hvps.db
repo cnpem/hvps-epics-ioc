@@ -1,5 +1,12 @@
 # HVPS Database records
 
+record(bi, "$(P)$(R)Alive-Mon") {
+  field(DESC, "Device online status")
+  field(INP,  "$(P)$(R)asyn.CNCT CP")
+  field(ZNAM, "Offline")
+  field(ONAM, "Online")
+}
+
 # Firmware version
 record(stringin, "$(P)$(R)FwVersion-Cte") {
   field (DESC, "Firmware version")
