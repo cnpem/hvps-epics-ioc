@@ -1,11 +1,11 @@
 services:
   ioc:
-    image: gitregistry.cnpem.br/gie/iocs/hvps-epics-ioc
+    image: ghcr.io/cnpem/hvps-epics-ioc:latest
     build:
       context: ./
       dockerfile: docker/Dockerfile
       labels:
-        org.opencontainers.image.source: https://gitlab.cnpem.br/GIE/IOCs/hvps-epics-ioc
+        org.opencontainers.image.source: https://github.com/cnpem/hvps-epics-ioc
       args:
         REPONAME: hvps-epics-ioc
         RUNDIR: /opt/hvps-epics-ioc/iocBoot/iocHVPSApp
