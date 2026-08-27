@@ -1,6 +1,6 @@
 services:
   ioc:
-    image: ghcr.io/cnpem/hvps-epics-ioc:latest
+    image: ghcr.io/cnpem/hvps-epics-ioc:$TAG
     build:
       context: ./
       dockerfile: docker/Dockerfile

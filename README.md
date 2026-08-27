@@ -8,7 +8,7 @@ Controller (IOC).
 In order to build the Docker image, you can execute the following command
 
 ```bash
-docker compose build
+TAG=latest docker compose build
 ```
 
 ## Instantiating a Docker container
