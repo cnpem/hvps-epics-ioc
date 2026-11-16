@@ -1,14 +1,14 @@
 # HVPS Database records
 
-record(bi, "$(P)$(R)Alive-Mon") {
+record(bi, "$(P)Alive-Mon") {
   field(DESC, "Device online status")
-  field(INP,  "$(P)$(R)asyn.CNCT CP")
+  field(INP,  "$(P)asyn.CNCT CP")
   field(ZNAM, "Offline")
   field(ONAM, "Online")
 }
 
 # Firmware version
-record(stringin, "$(P)$(R)FwVersion-Cte") {
+record(stringin, "$(P)FwVersion-Cte") {
   field (DESC, "Firmware version")
   field (DTYP, "stream")
   field (SCAN, "Passive")
@@ -17,7 +17,7 @@ record(stringin, "$(P)$(R)FwVersion-Cte") {
 }
 
 # Serial number
-record(stringin, "$(P)$(R)SerialNumber-Cte") {
+record(stringin, "$(P)SerialNumber-Cte") {
   field(DESC, "Device serial number")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -26,7 +26,7 @@ record(stringin, "$(P)$(R)SerialNumber-Cte") {
 }
 
 # Name
-record(stringin, "$(P)$(R)Name-Cte") {
+record(stringin, "$(P)Name-Cte") {
   field(DESC, "Device name")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -35,7 +35,7 @@ record(stringin, "$(P)$(R)Name-Cte") {
 }
 
 # Location
-record(stringin, "$(P)$(R)Location-Cte") {
+record(stringin, "$(P)Location-Cte") {
   field(DESC, "Device location")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -44,7 +44,7 @@ record(stringin, "$(P)$(R)Location-Cte") {
 }
 
 # Polarity
-record(mbbi, "$(P)$(R)Polarity-Cte") {
+record(mbbi, "$(P)Polarity-Cte") {
   field(DESC, "Output polarity")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -58,7 +58,7 @@ record(mbbi, "$(P)$(R)Polarity-Cte") {
 }
 
 # Operation mode
-record(mbbi, "$(P)$(R)OperationMode-Mon") {
+record(mbbi, "$(P)OperationMode-Mon") {
   field(DESC, "Operation mode (physical switch)")
   field(DTYP, "stream")
   field(SCAN, "1 second")
@@ -75,7 +75,7 @@ record(mbbi, "$(P)$(R)OperationMode-Mon") {
 
 # Operation status
 ## }
-record(mbbi, "$(P)$(R)OperationStatus-Mon") {
+record(mbbi, "$(P)OperationStatus-Mon") {
   field(DESC, "Operation status")
   field(DTYP, "stream")
   field(SCAN, "1 second")
@@ -99,7 +99,7 @@ record(mbbi, "$(P)$(R)OperationStatus-Mon") {
 }
 
 # Voltage setpoint
-record(longout, "$(P)$(R)VoltageSetpoint-SP") {
+record(longout, "$(P)VoltageSetpoint-SP") {
   field(DESC, "Output voltage setpoint 'setpoint'")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -110,7 +110,7 @@ record(longout, "$(P)$(R)VoltageSetpoint-SP") {
   field(EGU, "V")
   field(VAL, "0")
 }
-record(longin, "$(P)$(R)VoltageSetpoint-RB") {
+record(longin, "$(P)VoltageSetpoint-RB") {
   field(DESC, "Output voltage setpoint 'readback'")
   field(DTYP, "stream")
   field(SCAN, ".1 second")
@@ -121,7 +121,7 @@ record(longin, "$(P)$(R)VoltageSetpoint-RB") {
 
 
 # Voltage reference
-record(longin, "$(P)$(R)VoltageRef-Mon") {
+record(longin, "$(P)VoltageRef-Mon") {
   field(DESC, "Output voltage reference")
   field(DTYP, "stream")
   field(SCAN, ".2 second")
@@ -131,7 +131,7 @@ record(longin, "$(P)$(R)VoltageRef-Mon") {
 }
 
 # Apply voltage setpoint
-record(bo, "$(P)$(R)VoltageSetpoint-Cmd") {
+record(bo, "$(P)VoltageSetpoint-Cmd") {
   field(DESC, "Applies voltage setpoint to output/reference")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -144,17 +144,17 @@ record(bo, "$(P)$(R)VoltageSetpoint-Cmd") {
 }
 
 # Current limit
-record(longout, "$(P)$(R)CurrentLimit-SP") {
+record(longout, "$(P)CurrentLimit-SP") {
   field(DESC, "Current limit setpoint")
   field(DTYP, "stream")
   field(SCAN, "Passive")
   field(DRVL, "1")
   field(DRVH, "1200")
   field(OUT, "@hvps.proto setCurrentLimit() $(PORT)")
-  field(FLNK, "$(P)$(R)CurrentLimit-RB.PROC CA")
+  field(FLNK, "$(P)CurrentLimit-RB.PROC CA")
   field(EGU, "uA")
 }
-record(longin, "$(P)$(R)CurrentLimit-RB") {
+record(longin, "$(P)CurrentLimit-RB") {
   field(DESC, "Current limit readback")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -164,17 +164,17 @@ record(longin, "$(P)$(R)CurrentLimit-RB") {
 }
 
 # Current trip
-record(longout, "$(P)$(R)CurrentTrip-SP") {
+record(longout, "$(P)CurrentTrip-SP") {
   field(DESC, "Current trip setpoint")
   field(DTYP, "stream")
   field(SCAN, "Passive")
   field(DRVL, "1")
   field(DRVH, "1200")
   field(OUT, "@hvps.proto setCurrentTrip() $(PORT)")
-  field(FLNK, "$(P)$(R)CurrentTrip-RB.PROC CA")
+  field(FLNK, "$(P)CurrentTrip-RB.PROC CA")
   field(EGU, "uA")
 }
-record(longin, "$(P)$(R)CurrentTrip-RB") {
+record(longin, "$(P)CurrentTrip-RB") {
   field(DESC, "Current trip readback")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -184,7 +184,7 @@ record(longin, "$(P)$(R)CurrentTrip-RB") {
 }
 
 # Output enable
-record(bo, "$(P)$(R)OutputEnable-Cmd") {
+record(bo, "$(P)OutputEnable-Cmd") {
   field(DESC, "Tries to enable output")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -194,7 +194,7 @@ record(bo, "$(P)$(R)OutputEnable-Cmd") {
   field(ONAM, "ENABLING")
   field(OUT, "@hvps.proto setOutputEnable(1) $(PORT)")
 }
-record(bo, "$(P)$(R)OutputDisable-Cmd") {
+record(bo, "$(P)OutputDisable-Cmd") {
   field(DESC, "Disables HV output")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -206,7 +206,7 @@ record(bo, "$(P)$(R)OutputDisable-Cmd") {
   field(OUT, "@hvps.proto setOutputEnable(0) $(PORT)")
   field(VAL, "0")
 }
-record(mbbi, "$(P)$(R)OutputStatus-Mon") {
+record(mbbi, "$(P)OutputStatus-Mon") {
   field(DESC, "Output enable monitor")
   field(DTYP, "stream")
   field(SCAN, ".2 second")
@@ -219,7 +219,7 @@ record(mbbi, "$(P)$(R)OutputStatus-Mon") {
 }
 
 # Clear interlock command
-record(bo, "$(P)$(R)ClearInterlock-Cmd") {
+record(bo, "$(P)ClearInterlock-Cmd") {
   field(DESC, "Tries to clear interlock")
   field(DTYP, "stream")
   field(SCAN, "Passive")
@@ -231,13 +231,13 @@ record(bo, "$(P)$(R)ClearInterlock-Cmd") {
 }
 
 # Acquire voltage and current
-record(longin, "$(P)$(R)Voltage-Mon") {
+record(longin, "$(P)Voltage-Mon") {
   field(DESC, "Output voltage monitor")
   field(DTYP, "stream")
   field(SCAN, ".2 second")
-  field(INP, "@hvps.proto getVoltageAndCurrent($(P),$(R)) $(PORT)")
+  field(INP, "@hvps.proto getVoltageAndCurrent($(P)) $(PORT)")
 }
-record(longin, "$(P)$(R)Current-Mon") {
+record(longin, "$(P)Current-Mon") {
   field(DESC, "Output current monitor")
   field(SCAN, "Passive")
 }

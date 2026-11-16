@@ -9,4 +9,3 @@ services:
       args:
         REPONAME: hvps-epics-ioc
         RUNDIR: /opt/hvps-epics-ioc/iocBoot/iocHVPSApp
-        ENTRYPOINT: ./run.sh
