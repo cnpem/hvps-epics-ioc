@@ -2,8 +2,7 @@
 
 set -ue
 
-export P="${BEAMLINE}:"
-export R="${HUTCH}:"
+export P="${P}"
 
 socket_path=./ioc.sock
 mkdir -p /var/opt/hvps-epics-ioc/autosave

@@ -17,7 +17,7 @@ For instantiating a Docker container, execute the following command properly
 filling the environment variables.
 
 ```bash
-docker run --name <NAME> --net host -d -e BEAMLINE=<BEAMLINE> -e HUTCH=<HUTCH> \
+docker run --name <NAME> --net host -d -e P=<BEAMLINE>:<HUTCH>: \
 -e HVPS_IP_ADDRESS=<HVPS_IP_ADDRESS> -e HVPS_PORT=<HVPS_PORT> hvps-epics-ioc
 ```
 
