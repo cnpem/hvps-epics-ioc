@@ -44,6 +44,3 @@ cd "${TOP}/iocBoot/${IOC}"
 < save_restore.cmd
 
 iocInit
-
-create_monitor_set("hvps.req", 30, "P=$(PREFIX)")
-set_savefile_name("hvps.req", "$(PREFIX).sav")
