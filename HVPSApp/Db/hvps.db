@@ -235,7 +235,7 @@ record(longin, "$(P)Voltage-Mon") {
   field(DESC, "Output voltage monitor")
   field(DTYP, "stream")
   field(SCAN, ".2 second")
-  field(INP, "@hvps.proto getVoltageAndCurrent($(P)) $(PORT)")
+  field(INP, "@hvps.proto getVoltageAndCurrent($(P)Current-Mon) $(PORT)")
 }
 record(longin, "$(P)Current-Mon") {
   field(DESC, "Output current monitor")

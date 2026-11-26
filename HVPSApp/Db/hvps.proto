@@ -108,5 +108,5 @@ clearInterlock {
 # Acquire voltage and current
 getVoltageAndCurrent {
   out "@ACQ";
-  in "%u %(\$1Current-Mon)u";
+  in "%u %(\$1)u";
 }
